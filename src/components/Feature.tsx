@@ -1,15 +1,16 @@
 "use client";
+
 import React, { useEffect, useRef } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-
-import EcosystemIcon from "../assets/icons/ecosystem.svg";
 
 export const Feature = ({
   title,
   description,
+  icon,
 }: {
   title: string;
   description: string;
+  icon: React.ReactNode;
 }) => {
   const offsetX = useMotionValue(-100);
   const offsetY = useMotionValue(-100);
@@ -62,7 +63,7 @@ export const Feature = ({
         ref={border}
       ></motion.div>
       <div className="inline-flex h-14 w-14 bg-white text-black justify-center items-center rounded-lg">
-        <EcosystemIcon />
+        {icon}
       </div>
       <h3 className="mt-6 font-bold">{title}</h3>
       <p className="mt-2 text-white/70">{processDescription(description)}</p>
