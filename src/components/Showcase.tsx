@@ -35,7 +35,9 @@ export const Showcase = () => {
           style={{
             opacity: opacity,
             rotateX: rotateX,
-            transformPerspective: "400px",
+            transformPerspective: "600px",
+            width: "90%",
+            margin: "0 auto",
           }}
         >
           <Image
@@ -43,6 +45,7 @@ export const Showcase = () => {
             alt="App screen"
             className="mt-14 mx-auto rounded-m shadow-2xl"
             ref={appImage}
+            style={{ width: "100%", height: "auto" }}
           />
         </motion.div>
       </div>
