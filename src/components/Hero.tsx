@@ -17,7 +17,6 @@ export const Hero = () => {
   });
 
   const translateY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
-
   return (
     <div
       className="bg-black text-white bg-[linear-gradient(to_bottom,#000,#42210B_34%,#A14F21_65%,#DBA45E_82%)] py-[72px] sm:py-24 relative overflow-clip"
