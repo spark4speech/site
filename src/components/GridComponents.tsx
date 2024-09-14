@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const logos = [
   "https://static-00.iconduck.com/assets.00/vercel-icon-512x449-3422jidz.png",
@@ -16,7 +18,7 @@ const LogoBeam = () => {
     <div className="flex items-center justify-center min-h-52">
       <div className="relative flex items-center">
         <div className="bg-[#000] border border-white/30  rounded-2xl flex items-center justify-center w-14 h-14 p-4">
-          <img
+          <Image
             src={logos[0]}
             alt="Logo 1"
             className="filter invert brightness-0"
@@ -45,7 +47,7 @@ const LogoBeam = () => {
           />
         </div>
         <div className="relative bg-black border-2 border-white/70 rounded-2xl flex items-center justify-center w-16 h-16 p-4 overflow-hidden shadow-[0_0_15px_5px_#dbe0e2]">
-          <img
+          <Image
             src={logos[1]}
             alt="Logo 2"
             className="filter invert brightness-0"
@@ -86,7 +88,7 @@ const LogoBeam = () => {
           />
         </div>
         <div className="bg-black border border-white/30 rounded-2xl flex items-center justify-center w-14 h-14 p-4">
-          <img
+          <Image
             src={logos[2]}
             alt="Logo 3"
             className="filter invert brightness-0"
@@ -101,20 +103,6 @@ const data = [
   -50, -35, -18, 10, 15, 28, 38, 41, 51, 76, 83, 99, 104, 150, 170, 200, 230,
   240,
 ];
-
-/*
-11
-12
-17
-23
-25
-33
-40
-51
-54
-60
-66
-73*/
 
 const maxData = Math.max(...data);
 const chartHeight = 400;
@@ -184,6 +172,7 @@ const Components = () => {
 
     return () => {
       if (chartRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(chartRef.current);
       }
     };
