@@ -36,7 +36,6 @@ export const Feature = ({
     return desc.split(regex).map((part, index) => {
       if (index % 3 === 0) return part;
       if (index % 3 === 1) {
-        console.log(desc.split(regex)[index + 1]);
         return (
           <a
             key={index}
