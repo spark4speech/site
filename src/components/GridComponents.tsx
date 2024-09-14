@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const logos = [
   "https://static-00.iconduck.com/assets.00/vercel-icon-512x449-3422jidz.png",
@@ -18,7 +17,7 @@ const LogoBeam = () => {
     <div className="flex items-center justify-center min-h-52">
       <div className="relative flex items-center">
         <div className="bg-[#000] border border-white/30  rounded-2xl flex items-center justify-center w-14 h-14 p-4">
-          <Image
+          <img
             src={logos[0]}
             alt="Logo 1"
             className="filter invert brightness-0"
@@ -47,7 +46,7 @@ const LogoBeam = () => {
           />
         </div>
         <div className="relative bg-black border-2 border-white/70 rounded-2xl flex items-center justify-center w-16 h-16 p-4 overflow-hidden shadow-[0_0_15px_5px_#dbe0e2]">
-          <Image
+          <img
             src={logos[1]}
             alt="Logo 2"
             className="filter invert brightness-0"
@@ -88,7 +87,7 @@ const LogoBeam = () => {
           />
         </div>
         <div className="bg-black border border-white/30 rounded-2xl flex items-center justify-center w-14 h-14 p-4">
-          <Image
+          <img
             src={logos[2]}
             alt="Logo 3"
             className="filter invert brightness-0"

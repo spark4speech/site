@@ -28,13 +28,13 @@ export const Hero = () => {
           <Link
             href={"https://github.com/spark4speech"}
             target="_blank"
-            className="inline-flex gap-1 border py-2 px-3 rounded-xl border-white border-opacity-30"
+            className="text-center gap-1 border py-2 px-3 rounded-xl border-white border-opacity-30"
           >
             <span className="bg-[linear-gradient(to_right,#F87AFF,#FB93D0,#FFDD99,#C3F0B2)] text-transparent bg-clip-text [-webkit-background-clip:text]">
-              SPARK is open source!
+              SPARK is open source!{" "}
             </span>
             <span className="inline-flex items-center gap-1">
-              <span>Check us out on GitHub</span>
+              <span>Check out our GitHub</span>
               <ArrowIcon />
             </span>
           </Link>

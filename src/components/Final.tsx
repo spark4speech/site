@@ -32,7 +32,7 @@ export const Final = () => {
   };
 
   return (
-    <div className="bg-gradient-to-t from-black to-[#94491d] text-white sm:p-24 text-center overflow-hidden">
+    <div className="bg-gradient-to-t from-black to-[#94491d] text-white p-24 text-center overflow-hidden">
       <div className="container max-w-2xl relative ">
         <h2 className="font-bold text-5xl sm:text-6xl tracking-tighter">
           Get early access
