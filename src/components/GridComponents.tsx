@@ -295,7 +295,7 @@ const Components = () => {
                   Continuous Improvement
                 </h1>
                 <p className="text-white/70 text-lg">
-                  At it&apos;s core, SPARK is a community-driven project. We are
+                  At its core, SPARK is a community-driven project. We are
                   constantly looking for new ways to improve and expand our
                   services, and greatly value input and feedback from our users.
                   There are many ways to get involved with SPARK, from
