@@ -8,6 +8,8 @@ export const Final = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    console.log(process.env.NEXT_PUBLIC_NOTIFICATION_API_URL);
+
     const response = await fetch(
       process.env.NEXT_PUBLIC_NOTIFICATION_API_URL as string,
       {
@@ -27,6 +29,8 @@ export const Final = () => {
         "Failed to send access request. Please try again later, or contact us for further assistance."
       );
     }
+
+    setEmail("");
   };
 
   return (
