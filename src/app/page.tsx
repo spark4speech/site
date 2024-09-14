@@ -4,6 +4,8 @@ import { Features } from "@/components/Features";
 import { Showcase } from "@/components/Showcase";
 import { Grid } from "@/components/Grid";
 import { FAQs } from "@/components/FAQ";
+import { Final } from "@/components/Final";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
           <FAQs />
         </>
       )}
+      <Final />
+      <Footer />
     </>
   );
 }
