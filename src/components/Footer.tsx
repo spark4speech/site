@@ -13,13 +13,13 @@ export const Footer = () => {
           <ul className="flex justify-center gap-2.5">
             <li
               className="hover:cursor-pointer"
-              onClick={() => window.open("https://instagram.com", "_blank")}
+              onClick={() => window.open("https://www.instagram.com/spark4speech/", "_blank")}
             >
               <InstaIcon />
             </li>
             <li
               className="hover:cursor-pointer"
-              onClick={() => window.open("https://x.com", "_blank")}
+              onClick={() => window.open("https://x.com/spark4speech", "_blank")}
             >
               <XSocial />
             </li>
@@ -31,7 +31,7 @@ export const Footer = () => {
             </li>
             <li
               className="hover:cursor-pointer"
-              onClick={() => window.open("https://youtube.com", "_blank")}
+              onClick={() => window.open("https://m.youtube.com/channel/UC4LhVoJRk9cEgbwi_c0290w", "_blank")}
             >
               <YoutubeIcon />
             </li>
