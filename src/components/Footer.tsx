@@ -2,7 +2,6 @@
 
 import InstaIcon from "../assets/icons/insta.svg";
 import XSocial from "../assets/icons/x-social.svg";
-import TiktokIcons from "../assets/icons/tiktok.svg";
 import YoutubeIcon from "../assets/icons/youtube.svg";
 
 export const Footer = () => {
@@ -22,12 +21,6 @@ export const Footer = () => {
               onClick={() => window.open("https://x.com/spark4speech", "_blank")}
             >
               <XSocial />
-            </li>
-            <li
-              className="hover:cursor-pointer"
-              onClick={() => window.open("https://tiktok.com", "_blank")}
-            >
-              <TiktokIcons />
             </li>
             <li
               className="hover:cursor-pointer"

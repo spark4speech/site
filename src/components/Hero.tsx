@@ -19,7 +19,7 @@ export const Hero = () => {
   const translateY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
   return (
     <div
-      className="bg-black text-white bg-[linear-gradient(to_bottom,#000,#42210B_34%,#A14F21_65%,#DBA45E_82%)] py-[72px] sm:py-24 relative overflow-clip"
+      className="bg-black text-white bg-[linear-gradient(to_bottom,#000,#42210B_34%,#A14F21_65%,#DBA45E_82%)] py-[72px] sm:py-14 relative overflow-clip"
       ref={container}
     >
       <div className="absolute h-[500px] w-[850px] sm:w-[1536px] sm:h-[768px] lg:w-[2600px] lg:h-[800px] rounded-[100%] bg-black left-1/2 -translate-x-1/2 border border-[#DEB48C] border-opacity-50 bg-[radial-gradient(closest-side,#000_90%,#EB9560)] top-[calc(100%-96px)] sm:top-[calc(100%-120px)]"></div>
