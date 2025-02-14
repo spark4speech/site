@@ -23,6 +23,7 @@ const nextConfig = {
 
     return config;
   },
+  swcMinify: false,
 };
 
 export default nextConfig;
