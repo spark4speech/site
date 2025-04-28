@@ -4,22 +4,34 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Person 1",
-    role: "Cool person",
+    name: "Shaurya B.",
+    role: "Parent",
     quote:
-      "Nice comment",
+      "As a parent, seeing my child form full sentences with SPARK was an unforgettable moment.",
   },
   {
-    name: "Person 2",
-    role: "Cooler person",
+    name: "Simon Claw",
+    role: "Parent",
     quote:
-      "SPARK is so sigma",
+      "An incredible tool built with real heart. SPARK gives my son a voice in a way that feels natural and easy.",
   },
   {
-    name: "Person 3",
-    role: "Coolest person",
+    name: "Deepthi K.",
+    role: "Community Member",
     quote:
-      "icl ts dont pmo fr ong",
+      "The team behind SPARK is building more than an app—they’re building a community where every voice matters. My favorite nonprofit!",
+  },
+  {
+    name: "Victor C.",
+    role: "Educator",
+    quote:
+      "Finally, an AAC app that doesn’t cost a fortune. SPARK proves accessibility shouldn’t have a price tag.",
+  },
+  {
+    name: "Alysha Stencery",
+    role: "Parent, Speech and Occupational Therapist",
+    quote:
+      "SPARK is bridging the gap between creativity, technology, and communication in a way that’s accessible to all.",
   },
 ];
 
