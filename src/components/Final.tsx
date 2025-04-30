@@ -8,29 +8,7 @@ export const Final = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Notification
-    const ntfyRes = await fetch(
-      process.env.NEXT_PUBLIC_NOTIFICATION_API_URL as string,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Title: "SPARK Access Request",
-          Priority: "urgent",
-          Tags: "rocket",
-        },
-        body: `${email} has requested to join the SPARK mailing list.`,
-      }
-    );
-
-    console.log(ntfyRes)
-
-    if (!ntfyRes.ok) {
-      alert("Something went wrong. Please try again later.");
-    }
-
-    // Update mailing list spreadsheet
+    
     const response = await fetch("/api/submit-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
