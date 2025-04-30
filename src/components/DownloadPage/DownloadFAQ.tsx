@@ -60,7 +60,7 @@ export const DownloadFAQ = () => {
   ]
 
   return (
-    <div className="bg-black py-24">
+    <div className="bg-gradient-to-b to-[#94491d] from-black py-24">
       <div className="container max-w-3xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
         <div className="space-y-4">

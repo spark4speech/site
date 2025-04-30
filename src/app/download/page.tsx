@@ -4,6 +4,7 @@ import { DownloadOptions } from "@/components/DownloadPage/DownloadOptions";
 import { SystemRequirements } from "@/components/DownloadPage/SystemRequirements";
 import { DownloadFAQ } from "@/components/DownloadPage/DownloadFAQ";
 import { Footer } from "@/components/Footer";
+import { Final } from "@/components/Final";
 
 export default function DownloadPage() {
   return (
@@ -14,6 +15,7 @@ export default function DownloadPage() {
         <DownloadOptions />
         <SystemRequirements />
         <DownloadFAQ />
+        <Final />
       </main>
       <Footer />
     </div>
