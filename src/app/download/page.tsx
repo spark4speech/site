@@ -4,6 +4,7 @@ import { DownloadOptions } from "@/components/DownloadPage/DownloadOptions";
 import { DownloadFAQ } from "@/components/DownloadPage/DownloadFAQ";
 import { Footer } from "@/components/Footer";
 import { Final } from "@/components/Final";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Get SPARK",
@@ -25,4 +26,3 @@ export default function DownloadPage() {
     </div>
   )
 }
-import type { Metadata } from "next";

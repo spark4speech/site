@@ -3,6 +3,7 @@ import XSocial from "../assets/icons/x-social.svg";
 import YoutubeIcon from "../assets/icons/youtube.svg";
 
 const legalLinks = [
+  ["About", "/about"],
   ["Privacy", "https://web.spark4speech.com/privacy"],
   ["Terms", "https://web.spark4speech.com/terms"],
   ["Support", "https://web.spark4speech.com/support"],

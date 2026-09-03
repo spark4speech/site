@@ -1,7 +1,19 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import appScreen from "../assets/images/app-home.png";
 
 export const Showcase = () => {
+  const frame = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: frame,
+    offset: ["start end", "end end"],
+  });
+  const rotateX = useTransform(scrollYProgress, [0, 1], [12, 0]);
+
   return (
     <div className="bg-black text-white bg-gradient-to-b from-black to-[#94491d] py-72px sm:py-24">
       <div className="container">
@@ -15,14 +27,22 @@ export const Showcase = () => {
             tools stay close without getting in the way.
           </p>
         </div>
-        <div className="mx-auto w-[90%]">
+        <motion.div
+          ref={frame}
+          className="mx-auto mt-14 w-[90%] overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+          style={{
+            rotateX: reduceMotion ? 0 : rotateX,
+            transformPerspective: "800px",
+            transformOrigin: "center bottom",
+          }}
+        >
           <Image
             src={appScreen}
             alt="SPARK communication board showing folders and everyday vocabulary"
-            className="mt-14 mx-auto rounded-m shadow-2xl"
+            className="block"
             style={{ width: "100%", height: "auto" }}
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { FeaturesHero } from "@/components/FeaturesPage/FeaturesHero"
 import { KeyFeatures } from "@/components/FeaturesPage/KeyFeatures"
 import { UIShowcase } from "@/components/FeaturesPage/UIShowcase"
@@ -25,4 +26,3 @@ export default function FeaturesPage() {
     </div>
   )
 }
-import type { Metadata } from "next"

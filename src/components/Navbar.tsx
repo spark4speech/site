@@ -12,6 +12,7 @@ export const Navbar = () => {
   const links = [
     { href: "/", label: "Home" },
     { href: "/features", label: "Features" },
+    { href: "/about", label: "About" },
     { href: "https://web.spark4speech.com/support", label: "Support", external: true },
   ];
 
