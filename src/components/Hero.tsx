@@ -1,42 +1,21 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import ArrowIcon from "../assets/icons/arrow-w.svg";
-import cursorImage from "../assets/images/cursor.png";
-import messageImage from "../assets/images/message.png";
 
 export const Hero = () => {
-  const container = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
-
-  const translateY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
   return (
     <div
       className="bg-black text-white bg-[linear-gradient(to_bottom,#000,#42210B_34%,#A14F21_65%,#DBA45E_82%)] py-[72px] sm:py-14 relative overflow-clip"
-      ref={container}
     >
       <div className="absolute h-[500px] w-[850px] sm:w-[1536px] sm:h-[768px] lg:w-[2600px] lg:h-[800px] rounded-[100%] bg-black left-1/2 -translate-x-1/2 border border-[#DEB48C] border-opacity-50 bg-[radial-gradient(closest-side,#000_90%,#EB9560)] top-[calc(100%-96px)] sm:top-[calc(100%-120px)]"></div>
       <div className="container relative">
         <div className="flex items-center justify-center">
           <Link
-            href={"https://github.com/spark4speech"}
-            target="_blank"
+            href={"https://web.spark4speech.com/privacy"}
             className="text-center gap-1 border py-2 px-3 rounded-xl border-white border-opacity-30"
           >
             <span className="bg-[linear-gradient(to_right,#F87AFF,#FB93D0,#FFDD99,#C3F0B2)] text-transparent bg-clip-text [-webkit-background-clip:text]">
-              SPARK is open source!{" "}
+              Private by design
             </span>
-            <span className="inline-flex items-center gap-1">
-              <span>Check out our GitHub</span>
-              <ArrowIcon />
-            </span>
+            <span className="text-white/70"> · Works offline on supported devices</span>
           </Link>
         </div>
         <div className="flex justify-center mt-8">
@@ -45,48 +24,18 @@ export const Hero = () => {
               Speak <b className="text-orange-300">freely</b>, <br /> express
               yourself <b className="text-orange-300">clearly</b>.
             </h1>
-            <motion.div
-              className="absolute right-[850px] top-[120px]"
-              style={{ translateY }}
-            >
-              <Image
-                src={cursorImage}
-                alt="Cursor"
-                height={200}
-                width={200}
-                className="max-w-none"
-                draggable="false"
-                hidden
-              />
-            </motion.div>
-            <motion.div
-              className="absolute left-[840px] top-[250px]"
-              style={{ translateY }}
-            >
-              <Image
-                src={messageImage}
-                alt="Message"
-                height={200}
-                width={200}
-                className="max-w-none"
-                draggable="false"
-                hidden
-              />
-            </motion.div>
           </div>
         </div>
         <div className="flex justify-center">
           <p className="text-center text-xl mt-8 max-w-xl">
-            We&apos;re a nonprofit organization developing <b>SPARK</b> - A free
-            & open source augmentative and alternative communication tool for
-            individuals with speech and language challenges. Join us on our
-            journey.
+            <b>SPARK</b> is a free AAC app for building and speaking messages.
+            Organize vocabulary, personalize boards, and communicate using the
+            words that matter to you.
           </p>
         </div>
-        <div className="flex justify-center mt-8 ">
-          <button className="bg-white text-black py-3 px-5 rounded-xl font-medium shadow-xl">
-            Get started now
-          </button>
+        <div className="flex flex-col sm:flex-row justify-center gap-3 mt-8">
+          <Link href="https://web.spark4speech.com" className="bg-white text-black py-3 px-5 rounded-xl font-medium shadow-xl hover:bg-orange-100 transition text-center">Open SPARK</Link>
+          <Link href="/features" className="border border-white/30 text-white py-3 px-5 rounded-xl font-medium hover:bg-white/10 transition text-center">See how it works</Link>
         </div>
       </div>
     </div>

@@ -1,10 +1,15 @@
 import { FeaturesHero } from "@/components/FeaturesPage/FeaturesHero"
 import { KeyFeatures } from "@/components/FeaturesPage/KeyFeatures"
 import { UIShowcase } from "@/components/FeaturesPage/UIShowcase"
-import { Testimonials } from "@/components/FeaturesPage/Testimonials"
 import { FeaturesCTA } from "@/components/FeaturesPage/FeaturesCTA"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
+
+export const metadata: Metadata = {
+  title: "Features",
+  description: "Explore SPARK communication boards, customization, offline word prediction, settings, search, phrases, and local backups.",
+  alternates: { canonical: "/features" },
+};
 
 export default function FeaturesPage() {
   return (
@@ -14,11 +19,10 @@ export default function FeaturesPage() {
         <FeaturesHero />
         <KeyFeatures />
         <UIShowcase />
-        <Testimonials />
         <FeaturesCTA />
       </main>
       <Footer />
     </div>
   )
 }
-
+import type { Metadata } from "next"

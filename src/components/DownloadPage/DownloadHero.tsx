@@ -8,17 +8,15 @@ export const DownloadHero = () => {
           Download <span className="text-orange-300">SPARK</span>
         </h1>
         <p className="text-xl text-white/70 mb-8">
-          Get ready to ignite your communication potential with SPARK. Our free and open-source AAC tool is designed to
-          empower individuals with speech and language challenges.
+          Use SPARK in your browser today. Native iPhone, iPad, and Android releases are coming soon.
         </p>
         <Link
           href="#download-options"
           className="bg-white text-black py-3 px-6 rounded-xl font-medium shadow-xl hover:bg-orange-100 transition duration-300"
         >
-          Choose Your Platform
+          See availability
         </Link>
       </div>
     </div>
   )
 }
-

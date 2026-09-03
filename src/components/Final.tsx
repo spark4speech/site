@@ -1,67 +1,14 @@
-"use client";
+import Link from "next/link";
 
-import { useState } from "react";
-
-export const Final = () => {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const response = await fetch("/api/submit-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-  
-    if (response.ok) {
-      setSubmitted(true);
-    } else {
-      alert("Something went wrong. Please try again.");
-    }
-
-    setEmail("");
-  };
-
-  return (
-    <div className="bg-gradient-to-t from-black to-[#94491d] text-white p-24 text-center overflow-hidden">
-      <div className="container max-w-2xl relative ">
-        <h2 className="font-bold text-5xl sm:text-6xl tracking-tighter">
-          Join the mailing list
-        </h2>
-        <p className="text-xl text-white/70 mt-5">
-          SPARK is now available on the web and heading toward full launch. Join
-          our mailing list to pilot SPARK before its launch, test features
-          early, provide feedback, and stay in the loop as we build toward the
-          future.
-        </p>
-        {!submitted ? (
-          <form
-            className="mt-10 flex flex-col sm:flex-row gap-2.5 max-w-lg mx-auto"
-            onSubmit={handleSubmit}
-          >
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="bg-white/20 rounded-lg py-3 px-5 outline-none font-medium placeholder:text-[#9CA3AF] flex-1"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button
-              type="submit"
-              className="bg-white text-black h-12 rounded-lg px-5"
-            >
-              Join now
-            </button>
-          </form>
-        ) : (
-          <p className="mt-20 text-xl text-green-400">
-            🎉 You&apos;re on the list! We&apos;ll be in touch soon.
-          </p>
-        )}
+export const Final = () => (
+  <section className="overflow-hidden bg-gradient-to-t from-black to-[#94491d] px-4 py-24 text-center text-white" aria-labelledby="try-spark-heading">
+    <div className="container relative max-w-2xl">
+      <h2 id="try-spark-heading" className="text-5xl font-bold tracking-tighter sm:text-6xl">Try SPARK</h2>
+      <p className="mt-5 text-xl text-white/70">Open the web app and start with the included communication boards. No account is required.</p>
+      <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+        <Link href="https://web.spark4speech.com" className="rounded-lg bg-white px-6 py-3 font-medium text-black transition hover:bg-orange-100">Open SPARK</Link>
+        <Link href="https://web.spark4speech.com/support" className="rounded-lg border border-white/30 px-6 py-3 font-medium text-white transition hover:bg-white/10">Get support</Link>
       </div>
     </div>
-  );
-};
+  </section>
+);

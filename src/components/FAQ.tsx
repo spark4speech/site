@@ -1,117 +1,73 @@
 "use client";
-import { useState } from "react";
-import clsx from "clsx";
 
-import PlusIcon from "../assets/icons/plus.svg";
-import MinusIcon from "../assets/icons/minus.svg";
+import { useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Minus, Plus } from "lucide-react";
 
-const items = [
+const items: { question: string; answer: ReactNode }[] = [
   {
-    question: "How can I access SPARK?",
-    answer:
-      "SPARK is available on all devices. You can download the app on the App Store or Google Play. SPARK currently supports most tablets (including iPads) and smartphones. All you need is an internet connection to get started!",
+    question: "What is AAC?",
+    answer: "Augmentative and alternative communication (AAC) includes tools and methods that support or supplement speech. SPARK is one AAC option for building and speaking messages.",
   },
   {
-    question: "Do I need a tablet?",
-    answer:
-      "No! SPARK offers full support for both tablets and smartphones. Alternatively, we also offer a full-featured web app that you can access from any device with a web browser. You can access the web client at {web.spark4speech.com}{https://web.spark4speech.com}.",
+    question: "Who can use SPARK?",
+    answer: "SPARK is designed for people of different ages and abilities who may benefit from a customizable communication board. A user, family member, educator, clinician, or caregiver can adapt it to individual needs.",
   },
   {
-    question: "Who can I contact for support?",
-    answer:
-      "Our team is always here to help. You can reach out to us through one of various email addresses, depending on your needs. For general contact, you can reach us at {contact@spark4speech.com}{mailto:contact@spark4speech.com}. For press inquiries, please contact {inquires@spark4speech.com}{mailto:inquiries@spark4speech.com}. For support with the application or any SPARK service, email {support@spark4speech.com}{mailto:support@spark4speech.com}. Finally, you can reach the individual developers at {shreyas@spark4speech.com}{mailto:shreyas@spark4speech.com} and {catelyn@spark4speech.com}{mailto:catelyn@spark4speech.com}.",
+    question: "Where can I use SPARK today?",
+    answer: <>The web app is available now at <a className="text-orange-200 underline-offset-4 hover:underline" href="https://web.spark4speech.com">web.spark4speech.com</a>. Native iOS and Android releases are coming soon.</>,
   },
   {
-    question: "How do I use SPARK?",
-    answer:
-      "Okay, you've downloaded the app (or accessed the web client). Now how do you even use SPARK? SPARK is designed to be intuitive and easy to use, especially if you have experience with other AAC tools. We have a comprehensive user guide available at {guide.spark4speech.com}{https://guide.spark4speech.com} that will walk you through all the features and functionalities of SPARK. If you have any questions or need further assistance, feel free to reach out to our support team at {support@spark4speech.com}{mailto:support@spark4speech.com}.",
+    question: "Does SPARK work offline?",
+    answer: "The installed mobile app is designed to keep its core communication features available offline. The web app needs an internet connection to load and may depend on cached browser files afterward.",
   },
   {
-    question: "Is my data secure in your hands?",
-    answer:
-      "Security is one of our top priority. SPARK collects only the absolute minimal data required to function properly. We use state-of-the-art encryption and comply with the best industry practices to ensure that your data is stored securely and accessed only by you. Any data you submit to SPARK is entirely encrypted on the server and completely unaccessible by other users, including our team of developers.",
+    question: "Does SPARK collect my messages?",
+    answer: "Normal app use keeps messages, boards, settings, media, and learned predictions on the device. SPARK does not require an account and does not send communication content to a SPARK server.",
   },
   {
-    question: "How can I contribute to SPARK?",
-    answer:
-      "We're always looking for contributors to help us improve SPARK. Whether you're a developer, designer, or just someone passionate about accessibility, there are many ways you can help. You can contribute to our codebase on {GitHub}{https://github.com/spark4speech}, report bugs and suggest features on our {GitHub Issues}{https://github.com/spark4speech/spark/issues}, or even help us translate SPARK into other languages (if this is you, please reach out at {contact@spark4speech.com}{mailto:contact@spark4speech.com})!",
+    question: "Can I add my own words, photos, or recordings?",
+    answer: "Yes. You can add and edit words, phrases, folders, photos, emoji, pronunciations, colors, and voice recordings, then drag items into the order that works for you.",
+  },
+  {
+    question: "How does word prediction work?",
+    answer: "SPARK suggests likely next words using an offline language model. Optional private learning can adapt suggestions from complete messages you choose to speak, and that learned information stays on the device.",
+  },
+  {
+    question: "Can I move my setup between devices?",
+    answer: "SPARK can export a local backup containing profiles, boards, settings, saved phrases, and custom media. Backup files may contain sensitive communication content, so store and share them carefully.",
+  },
+  {
+    question: "Is SPARK a medical device?",
+    answer: "No. SPARK is a communication tool and does not provide medical, diagnostic, therapeutic, legal, or other professional advice.",
+  },
+  {
+    question: "How do I get help?",
+    answer: <>Visit <a className="text-orange-200 underline-offset-4 hover:underline" href="https://web.spark4speech.com/support">SPARK Support</a> or email <a className="text-orange-200 underline-offset-4 hover:underline" href="mailto:contact@spark4speech.com">contact@spark4speech.com</a>.</>,
   },
 ];
 
-const processDescription = (desc: string) => {
-  const regex = /\{([^}]+)\}\{([^}]+)\}/g;
-  return desc.split(regex).map((part, index) => {
-    if (index % 3 === 0) return part;
-    if (index % 3 === 1) {
-      return (
-        <a
-          key={index}
-          href={desc.split(regex)[index + 1]}
-          className="hover:underline text-orange-200"
-          target="_blank"
-        >
-          {part}
-        </a>
-      );
-    }
-    return null;
-  });
-};
-
-const AccordionItem = ({
-  question,
-  answer,
-}: {
-  question: string;
-  answer: string;
-}) => {
+function AccordionItem({ question, answer }: { question: string; answer: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const panelId = `faq-${question.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
   return (
-    <div
-      className="py-7 border-b border-white/30 cursor-pointer"
-      onClick={() => setIsOpen(!isOpen)}
-    >
-      <div className="flex items-center">
-        <span className="flex-1 sm:text-xl font-bold select-none">
-          {question}
-        </span>
-        {isOpen ? <MinusIcon /> : <PlusIcon />}
-      </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className={clsx("mt-4", { hidden: !isOpen, "": isOpen })}
-            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-          >
-            {processDescription(answer)}
-          </motion.div>
-        )}
+    <div className="border-b border-white/30 py-2">
+      <button type="button" aria-expanded={isOpen} aria-controls={panelId} className="flex min-h-16 w-full items-center gap-4 py-3 text-left" onClick={() => setIsOpen((value) => !value)}>
+        <span className="flex-1 text-lg font-bold sm:text-xl">{question}</span>
+        {isOpen ? <Minus aria-hidden="true" /> : <Plus aria-hidden="true" />}
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && <motion.div id={panelId} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden"><div className="pb-6 leading-relaxed text-white/75">{answer}</div></motion.div>}
       </AnimatePresence>
     </div>
   );
-};
+}
 
-export const FAQs = () => {
-  return (
-    <div className="hidden xl:block bg-black text-white bg-gradient-to-b from-black to-[#94491d] pb-24">
-      <div className="container">
-        <h2 className="text-center text-5xl sm:text-6xl font-bold tracking-tighter">
-          Frequently asked questions
-        </h2>
-        <div className="mt-12 max-w-5xl mx-auto">
-          {items.map((item, index) => (
-            <AccordionItem
-              key={index}
-              question={item.question}
-              answer={item.answer}
-            />
-          ))}
-        </div>
-      </div>
+export const FAQs = () => (
+  <section className="bg-black bg-gradient-to-b from-black to-[#94491d] pb-24 text-white" aria-labelledby="faq-heading">
+    <div className="container">
+      <h2 id="faq-heading" className="text-center text-5xl font-bold tracking-tighter sm:text-6xl">Frequently asked questions</h2>
+      <div className="mx-auto mt-12 max-w-5xl">{items.map((item) => <AccordionItem key={item.question} {...item} />)}</div>
     </div>
-  );
-};
+  </section>
+);

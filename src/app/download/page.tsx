@@ -1,10 +1,15 @@
 import { Navbar } from "@/components/Navbar";
 import { DownloadHero } from "@/components/DownloadPage/DownloadHero";
 import { DownloadOptions } from "@/components/DownloadPage/DownloadOptions";
-import { SystemRequirements } from "@/components/DownloadPage/SystemRequirements";
 import { DownloadFAQ } from "@/components/DownloadPage/DownloadFAQ";
 import { Footer } from "@/components/Footer";
 import { Final } from "@/components/Final";
+
+export const metadata: Metadata = {
+  title: "Get SPARK",
+  description: "Open the SPARK web app today and check availability for upcoming iOS and Android releases.",
+  alternates: { canonical: "/download" },
+};
 
 export default function DownloadPage() {
   return (
@@ -13,7 +18,6 @@ export default function DownloadPage() {
       <main>
         <DownloadHero />
         <DownloadOptions />
-        <SystemRequirements />
         <DownloadFAQ />
         <Final />
       </main>
@@ -21,3 +25,4 @@ export default function DownloadPage() {
     </div>
   )
 }
+import type { Metadata } from "next";

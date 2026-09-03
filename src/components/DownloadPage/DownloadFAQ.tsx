@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
 
   return (
     <div className="border-b border-white/10 py-4">
-      <button className="flex justify-between items-center w-full text-left" onClick={() => setIsOpen(!isOpen)}>
+      <button type="button" aria-expanded={isOpen} className="flex min-h-12 justify-between items-center w-full text-left" onClick={() => setIsOpen(!isOpen)}>
         <span className="text-lg font-medium">{question}</span>
         <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "transform rotate-180" : ""}`} />
       </button>
@@ -40,22 +40,22 @@ export const DownloadFAQ = () => {
     {
       question: "How do I install SPARK on my device?",
       answer:
-        "For mobile devices, simply download the app from the App Store (iOS) or Google Play Store (Android) and follow the installation prompts. For the web app, no installation is required - just visit web.spark4speech.com in your browser.",
+        "The web app does not need to be installed—open web.spark4speech.com in a current browser. App Store and Google Play instructions will be added when the native apps are released.",
     },
     {
       question: "Is SPARK free to download and use?",
       answer:
-        "Yes, SPARK is completely free to download and use. As a nonprofit organization, we're committed to keeping our software accessible to everyone who needs it.",
+        "Yes. The SPARK web app is currently free to use, and the planned native releases will be free to download.",
     },
     {
       question: "Can I use SPARK offline?",
       answer:
-        "The mobile apps for iOS and Android can be used offline once downloaded. The web app requires an internet connection to function.",
+        "The installed mobile app is designed to keep its core communication features available offline. The web app needs an internet connection to load and may depend on cached browser files afterward.",
     },
     {
       question: "How often is SPARK updated?",
       answer:
-        "We regularly update SPARK to improve functionality and add new features. You can enable automatic updates on your device to always have the latest version.",
+        "The web app receives updates when a new version is deployed. Native update options will depend on App Store and Google Play settings after those releases become available.",
     },
   ]
 
@@ -72,4 +72,3 @@ export const DownloadFAQ = () => {
     </div>
   )
 }
-

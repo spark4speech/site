@@ -1,76 +1,43 @@
-"use client";
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { FolderTree, Mic, Brain, GraduationCap } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { FolderTree, ImagePlus, Search, Speech } from "lucide-react";
 
 const features = [
   {
-    icon: <FolderTree className="w-8 h-8" />,
-    title: "Scalable Word Categories & Organization",
-    description:
-      "Diverse vocabulary organized in a tree-like system for intuitive and quick phrase construction.",
-    url: "#",
+    icon: FolderTree,
+    title: "Build and speak a message",
+    description: "Choose words from clear boards and folders. Each selection can be spoken immediately and added to the message bar for a complete thought.",
   },
   {
-    icon: <Mic className="w-8 h-8" />,
-    title: "Text-to-Speech Functionality",
-    description:
-      "Clear and natural sounding text-to-speech using React Native Expo Speech for enhanced communication.",
-    url: "#",
+    icon: Search,
+    title: "Find and reuse language",
+    description: "Search across built-in and custom vocabulary, save useful phrases, and quickly return to recently spoken messages.",
   },
   {
-    icon: <Brain className="w-8 h-8" />,
-    title: "AI-Powered Word Predictions",
-    description:
-      "Predictive algorithms suggest relevant words based on user input and context, personalizing the experience.",
-    url: "#",
+    icon: ImagePlus,
+    title: "Create the right vocabulary",
+    description: "Add or edit words, phrases, folders, images, emoji, colors, pronunciations, and recordings. Drag items into a familiar order or move them between boards.",
   },
   {
-    icon: <GraduationCap className="w-8 h-8" />,
-    title: "Developmental Adaptability",
-    description:
-      "Age-specific datasets cater to users at different developmental stages, functioning as both a communication and learning tool.",
-    url: "#",
+    icon: Speech,
+    title: "Choose how SPARK responds",
+    description: "Adjust the device voice, speed, pitch, text size, columns, symbols, touch delay, automatic navigation, and word prediction from Settings.",
   },
 ];
 
-export const KeyFeatures = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const router = useRouter();
-
-  return (
-    <div className="bg-[#42210B] py-24">
-      <div className="container max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Key Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6 cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
-            >
-              <div className="flex items-center mb-4">
-                <div className="mr-4 text-orange-300">{feature.icon}</div>
-                <h3 className="text-2xl font-bold">{feature.title}</h3>
-              </div>
-              <p className="text-white/70">{feature.description}</p>
-              {hoveredIndex === index && (
-                <motion.div
-                  onClick={() => router.push(`#${feature.url}`)}
-                  className="mt-4 text-orange-300"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  Learn more →
-                </motion.div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+export const KeyFeatures = () => (
+  <section className="bg-[#42210B] py-24" aria-labelledby="key-features-heading">
+    <div className="container mx-auto max-w-6xl px-4">
+      <h2 id="key-features-heading" className="mb-12 text-center text-4xl font-bold">How SPARK works</h2>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {features.map(({ icon: Icon, title, description }) => (
+          <article key={title} className="rounded-xl border border-white/10 bg-black/30 p-6 backdrop-blur-sm">
+            <div className="mb-4 flex items-center">
+              <Icon className="mr-4 h-8 w-8 text-orange-300" aria-hidden="true" />
+              <h3 className="text-2xl font-bold">{title}</h3>
+            </div>
+            <p className="leading-relaxed text-white/70">{description}</p>
+          </article>
+        ))}
       </div>
     </div>
-  );
-};
+  </section>
+);

@@ -29,7 +29,7 @@ export const Feature = ({
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
+  }, [offsetX, offsetY]);
 
   const processDescription = (desc: string) => {
     const regex = /\{([^}]+)\}\{([^}]+)\}/g;

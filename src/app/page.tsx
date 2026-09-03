@@ -13,16 +13,14 @@ export default function Home() {
     <>
       <Banner />
       <Navbar />
-      <Hero />
-      <Features />
-      <Showcase />
-      {!(global?.window?.innerWidth < 768) && (
-        <>
-          <Grid />
-          <FAQs />
-        </>
-      )}
-      <Final />
+      <main>
+        <Hero />
+        <Features />
+        <Showcase />
+        <Grid />
+        <FAQs />
+        <Final />
+      </main>
       <Footer />
     </>
   );
