@@ -17,9 +17,9 @@ export const FeaturesHero = () => {
               using it.
             </p>
           </div>
-          <div className="lg:w-1/2">
-            <div className="aspect-video rounded-xl overflow-hidden border border-white/15 bg-white shadow-2xl">
-              <Image src={appScreen} alt="SPARK home communication board" className="h-full w-full object-cover object-top" priority />
+          <div className="w-full lg:w-1/2">
+            <div className="overflow-hidden rounded-2xl border border-white/15 bg-white shadow-2xl">
+              <Image src={appScreen} alt="SPARK home communication board" className="block h-auto w-full" priority />
             </div>
           </div>
         </div>

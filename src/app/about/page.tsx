@@ -51,17 +51,15 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-[#94491d] px-4 py-24" aria-labelledby="mission-heading">
-          <div className="container mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-            <h2 id="mission-heading" className="text-4xl font-bold tracking-tight sm:text-5xl">Our mission</h2>
-            <div className="space-y-6 text-xl leading-relaxed text-white/75">
-              <p>
-                We want people to have a communication tool that can grow around their own words, routines, preferences, and access needs.
-              </p>
-              <p>
-                SPARK combines ready-to-use communication boards with flexible editing, helpful offline prediction, saved phrases, and settings that keep important controls within reach.
-              </p>
-            </div>
+        <section className="bg-[#94491d] px-4 pb-20 pt-10 text-center sm:pb-24 sm:pt-14" aria-labelledby="mission-heading">
+          <div className="container mx-auto max-w-4xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-200">Our mission</p>
+            <h2 id="mission-heading" className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
+              Build communication around the person.
+            </h2>
+            <p className="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-white/75">
+              SPARK starts with useful communication boards, then gives people room to shape their words, images, speech, and layout around their own lives.
+            </p>
           </div>
         </section>
 

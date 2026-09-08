@@ -3,6 +3,7 @@ import {
   SmartphoneIcon as AndroidIcon,
   GlobeIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 interface DownloadCardProps {
   title: string;
@@ -12,6 +13,7 @@ interface DownloadCardProps {
   link?: string;
   status: string;
   available?: boolean;
+  featured?: boolean;
 }
 
 const DownloadCard = ({
@@ -22,53 +24,58 @@ const DownloadCard = ({
   link,
   status,
   available,
+  featured,
 }: DownloadCardProps) => (
-  <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex flex-col items-center text-center">
-    {icon}
-    <h3 className="text-2xl font-bold mt-4 mb-2">{title}</h3>
-    <p className="text-white/70 mb-4">{description}</p>
+  <article className={`flex h-full flex-col items-center rounded-2xl border p-7 text-center ${featured ? "border-orange-300/40 bg-orange-500/10" : "border-white/10 bg-black/25"}`}>
+    <div className={`grid h-14 w-14 place-items-center rounded-xl ${featured ? "bg-orange-500 text-white" : "bg-white/10 text-white/80"}`}>
+      {icon}
+    </div>
+    <h3 className="mt-5 text-2xl font-bold">{title}</h3>
+    <p className="mb-6 mt-3 flex-1 text-white/70">{description}</p>
     {available && link && buttonText ? (
-      <a href={link} className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition duration-300">{buttonText}</a>
+      <Link href={link} className="rounded-lg bg-white px-5 py-3 font-medium text-black transition hover:bg-orange-100">{buttonText}</Link>
     ) : (
-      <span className="rounded-lg border border-white/15 bg-white/5 px-4 py-2 font-medium text-white/60">{status}</span>
+      <span className="rounded-lg border border-white/15 bg-white/5 px-5 py-3 font-medium text-white/60">{status}</span>
     )}
-  </div>
+  </article>
 );
 
 export const DownloadOptions = () => {
   return (
-    <div
+    <section
       id="download-options"
-      className="bg-gradient-to-b from-[#94491d] to-[#42210B] pt-24 pb-12"
+      className="scroll-mt-8 bg-[#42210B] px-4 py-20 sm:py-24"
     >
-      <div className="container max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Availability
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <DownloadCard
-            title="iOS"
-            icon={<AppleIcon className="w-16 h-16" />}
-            description="Download SPARK for your iPhone or iPad"
-            status="Coming soon"
-          />
-          <DownloadCard
-            title="Android"
-            icon={<AndroidIcon className="w-16 h-16" />}
-            description="Get SPARK for your Android smartphone or tablet"
-            status="Coming soon"
-          />
+      <div className="container mx-auto max-w-6xl">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-4xl font-bold text-white">Choose your platform</h2>
+          <p className="mt-4 text-lg text-white/70">The web app is available now. Mobile versions will appear here when they are ready.</p>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           <DownloadCard
             title="Web App"
-            icon={<GlobeIcon className="w-16 h-16" />}
-            description="Access SPARK directly from your web browser"
-            buttonText="Launch Web App"
+            icon={<GlobeIcon className="h-7 w-7" aria-hidden="true" />}
+            description="Open SPARK in a current browser without creating an account."
+            buttonText="Open SPARK"
             link="https://web.spark4speech.com"
             status="Available now"
             available
+            featured
+          />
+          <DownloadCard
+            title="iPhone & iPad"
+            icon={<AppleIcon className="h-7 w-7" aria-hidden="true" />}
+            description="A native version for iPhone and iPad is planned."
+            status="Coming later"
+          />
+          <DownloadCard
+            title="Android"
+            icon={<AndroidIcon className="h-7 w-7" aria-hidden="true" />}
+            description="A native version for Android phones and tablets is planned."
+            status="Coming later"
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };

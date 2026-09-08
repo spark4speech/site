@@ -3,7 +3,6 @@ import { DownloadHero } from "@/components/DownloadPage/DownloadHero";
 import { DownloadOptions } from "@/components/DownloadPage/DownloadOptions";
 import { DownloadFAQ } from "@/components/DownloadPage/DownloadFAQ";
 import { Footer } from "@/components/Footer";
-import { Final } from "@/components/Final";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function DownloadPage() {
         <DownloadHero />
         <DownloadOptions />
         <DownloadFAQ />
-        <Final />
       </main>
       <Footer />
     </div>

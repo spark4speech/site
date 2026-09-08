@@ -13,7 +13,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border-b border-white/10 py-4">
+    <div className="border-b border-white/10 py-3">
       <button type="button" aria-expanded={isOpen} className="flex min-h-12 justify-between items-center w-full text-left" onClick={() => setIsOpen(!isOpen)}>
         <span className="text-lg font-medium">{question}</span>
         <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "transform rotate-180" : ""}`} />
@@ -60,15 +60,15 @@ export const DownloadFAQ = () => {
   ]
 
   return (
-    <div className="bg-gradient-to-b to-[#94491d] from-black py-24">
-      <div className="container max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+    <section className="bg-gradient-to-b from-[#42210B] to-black px-4 py-20 sm:py-24">
+      <div className="container mx-auto max-w-3xl">
+        <h2 className="mb-10 text-center text-4xl font-bold">Questions</h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <FAQItem key={index} question={faq.question} answer={faq.answer} />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
